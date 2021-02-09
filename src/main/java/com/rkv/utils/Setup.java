@@ -5,8 +5,10 @@ import org.testng.annotations.BeforeSuite;
 
 public class Setup {
 
-    Configuration config = null;
-    public Configuration getConfigurationObject(){
+
+    public  static Configuration config = null;
+    public static  Configuration getConfigurationObject(){
+
         return config;
     }
 
