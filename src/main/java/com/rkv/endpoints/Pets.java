@@ -19,6 +19,18 @@ public class Pets {
     }
 
 
+    public static Response createNewPet(String body, int statusCode){
+
+        String endPoint = conf.HOST+"/pet";
+
+        Response apiResponse=given().log().ifValidationFails()
+                .header("Content-Type", "application/json").body(body)
+                .when().post(endPoint)
+                .then().assertThat().statusCode(statusCode).extract().response();
+        return apiResponse;
+    }
+
+
 
 
 }
