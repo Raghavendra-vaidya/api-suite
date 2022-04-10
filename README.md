@@ -15,9 +15,16 @@ Build tool: **`Maven`**
 
 Plugins: Maven-compile-plugin, Maven-surefire-plugin
 
+[TODO]
+
+Pre-requisites:
+
+How to run:
 
 Sample report:
 
 Sample CI pipeline screenshot:
+
+
 
 
