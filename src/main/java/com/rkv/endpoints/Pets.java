@@ -2,6 +2,9 @@ package com.rkv.endpoints;
 
 import com.jayway.restassured.response.Response;
 import com.rkv.utils.Configuration;
+
+import java.io.File;
+
 import static com.jayway.restassured.RestAssured.given;
 
 public class Pets {
@@ -30,7 +33,40 @@ public class Pets {
         return apiResponse;
     }
 
+    public static Response updatePet(String body, int statusCode){
 
+        String endPoint = conf.HOST+"/pet";
+
+        Response apiResponse=given().log().ifValidationFails()
+                .header("Content-Type", "application/json").body(body)
+                .when().put(endPoint)
+                .then().assertThat().statusCode(statusCode).extract().response();
+        return apiResponse;
+    }
+
+    public static Response uploadPetImage(String petID,String filePath, int statusCode){
+
+        String endPoint = conf.HOST+"/pet/"+petID+"/uploadImage";
+
+        Response apiResponse=given().log().ifValidationFails()
+                .header("Content-Type", "multipart/form-data")
+                .accept("application/json")
+                .multiPart("file", new File(filePath))
+                .when().post(endPoint)
+                .then().assertThat().statusCode(statusCode).extract().response();
+        return apiResponse;
+    }
+
+    public static Response findPetByStatus(String status, int statusCode){
+
+        String endPoint = conf.HOST+"/pet/findByStatus?status="+status;
+
+        Response apiResponse=given().log().ifValidationFails()
+                .header("Content-Type", "application/json")
+                .when().get(endPoint)
+                .then().assertThat().statusCode(statusCode).extract().response();
+        return apiResponse;
+    }
 
 
 }
