@@ -51,7 +51,7 @@ public class Users {
         return response;
 
     }
-    public static Response get(String userName, int statusCode){
+    public static Response getUser(String userName, int statusCode){
         String endPoint = conf.HOST+"/user/"+userName;
         Response response = given().log().ifValidationFails()
                         .header("Content-Type","application/json")

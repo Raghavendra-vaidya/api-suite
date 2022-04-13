@@ -45,7 +45,7 @@ public class PetsTests {
         String idOfPet = response.jsonPath().get("id").toString();
 
         Response resp = Pets.getPetByID(idOfPet, 200);
-        Assert.assertEquals("Booom pets", resp.jsonPath().get("name"));
+        Assert.assertEquals(name, resp.jsonPath().get("name"));
     }
 
     @Test (description = "verify updating of a pet name, family and tag name")
