@@ -30,7 +30,7 @@ workflows:
     # Run the welcome/run job in its own container
     triggers:
       - schedule:
-          cron: "30 6 * * 1"
+          cron: "30 6 * * 1-5"
           filters:
             branches:
               only:
