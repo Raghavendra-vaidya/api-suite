@@ -28,6 +28,7 @@
            <groupId>org.testng</groupId>
            <artifactId>testng</artifactId>
            <version>6.11</version>
+           <scope>test</scope>
 
        </dependency>
 
@@ -124,7 +125,7 @@
                 <version>2.12.4</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile></suiteXmlFile>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <environment>${env.HOME}</environment>

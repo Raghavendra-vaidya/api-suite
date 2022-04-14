@@ -4,8 +4,8 @@
     <test verbose="2" preserve-order="true"
           name="PetsTests">
         <classes>
-            <class name="com.rkv.testscripts.PetsTests"></class>
-            <class name="com.rkv.testscripts.UserTests"></class>
+            <class name="com.rkv.testscripts.PetsTest"></class>
+            <class name="com.rkv.testscripts.UserTest"></class>
         </classes>
     </test>
 </suite>

@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class PetsTests {
+public class PetsTest {
     Date date;
 
     @Test (description = "Create new pet and verify the creation")

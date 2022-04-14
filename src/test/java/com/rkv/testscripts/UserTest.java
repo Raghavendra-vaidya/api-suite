@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.Date;
 
-public class UserTests {
+public class UserTest {
 
     Date date;
 
