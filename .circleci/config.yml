@@ -28,12 +28,5 @@ workflows:
   # Name the workflow "welcome"
   petStoreApiPipeline:
     # Run the welcome/run job in its own container
-    triggers:
-      - schedule:
-          cron: "30 6 * * 1-5"
-          filters:
-            branches:
-              only:
-                - main
-    jobs:
+      jobs:
       - petstoreAPITests
