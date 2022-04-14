@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run Sketches Tests 1
+          name: Run Petstore Tests 1
           command: |
             mvn --quiet clean test -DsuiteXmlFile=testng.xml
       - run:
@@ -19,6 +19,7 @@ jobs:
             mkdir -p ~/test-output/
             find . -type f -regex "./target/surefire-reports/junitreports/.*xml" -exec cp {} ~/test-results/petstore-api-tests/ \;
             find . -type f -regex "./target/surefire-reports/TEST-TestSuite.xml" -exec cp {} ~/test-output/ \;
+            find . -type f -regex "./target/surefire-reports/emailable-report.html" -exec cp {} ~/test-output/ \;
           when: always
       - store_test_results:
           path: ~/test-results
