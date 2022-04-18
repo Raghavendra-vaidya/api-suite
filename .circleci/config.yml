@@ -26,16 +26,8 @@ jobs:
       - store_artifacts:
           path: ~/test-output
 workflows:
-  # Name the workflow "welcome"
+  # Name the workflow "petStoreApiPipeline"
   petStoreApiPipeline:
-    # Run the welcome/run job in its own container
-    triggers:
-      - schedule:
-          cron: "30 6 * * 1"
-          filters:
-            branches:
-              only:
-                - main
-
+    # Run pet store tests
     jobs:
       - petstoreAPITests
