@@ -1,10 +1,9 @@
 package com.rkv.endpoints;
 
-import com.jayway.restassured.response.Response;
+import io.restassured.response.Response;
 import com.rkv.utils.Configuration;
 
-
-import static com.jayway.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
 
 public class Users {
 
