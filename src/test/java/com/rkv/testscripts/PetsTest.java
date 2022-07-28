@@ -1,6 +1,6 @@
 package com.rkv.testscripts;
 
-import com.jayway.restassured.response.Response;
+import io.restassured.response.Response;
 import com.rkv.endpoints.Pets;
 import com.rkv.utils.JsonUtils;
 import org.json.simple.JSONObject;

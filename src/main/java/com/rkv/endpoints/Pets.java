@@ -1,11 +1,12 @@
 package com.rkv.endpoints;
 
-import com.jayway.restassured.response.Response;
 import com.rkv.utils.Configuration;
+
+import io.restassured.response.Response;
 
 import java.io.File;
 
-import static com.jayway.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
 
 public class Pets {
     static Configuration conf = new Configuration();
@@ -67,6 +68,7 @@ public class Pets {
                 .then().assertThat().statusCode(statusCode).extract().response();
         return apiResponse;
     }
+
 
 
 }
