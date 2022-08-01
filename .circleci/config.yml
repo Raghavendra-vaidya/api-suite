@@ -9,9 +9,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run Petstore Tests 1
-          command: |
-            mvn --quiet clean test -DsuiteXmlFile=testng.xml
+          name: Run Petstore Tests
+          command: mvn verify
       - run:
           name: Save test results
           command: |
