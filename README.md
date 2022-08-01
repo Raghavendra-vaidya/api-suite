@@ -21,7 +21,7 @@ Plugins: Maven-fail-safe
 ---
 Pre-requisites:
 * Java 1.8 or higher is required to installed in the system.
-* Maven should be installed locally or any IDE with maven plugin should be installed.
+* Maven and gradle should be installed locally or any IDE with maven plugin should be installed.
 
 ---
 How to run:
@@ -29,7 +29,7 @@ How to run:
 from the project root:  
 
 1. Maven: **`mvn verify`**
-2. Gradle: **`./gradlew test`**
+2. Gradle: **`gradle test`**
 
 
 ---
