@@ -15,6 +15,7 @@ public class UserTest {
 
     @Test(description = "verify create user api")
     public void createUser(){
+        /***Data preparation**/
         date = new Date();
         JSONObject requestBody = JsonUtils.getJsonFileObj("src/test/resources/createSingleUser.json");
         String userName = "User"+date.getTime();
@@ -30,21 +31,16 @@ public class UserTest {
         requestBody.put("password",password);
         requestBody.put("phone",phoneNumber);
 
-        System.out.println(requestBody.toString());
-
-        /***^Data preparation**/
-
+        /***Api call**/
         Response createUserResponse=Users.createUser(requestBody.toString(), 200);
-        System.out.println(createUserResponse.body().asString());
-        /***^Api call**/
 
+        /***Assertions**/
         Assert.assertFalse(createUserResponse.jsonPath().get("message").toString().isEmpty());
-
-        /***^Assertions**/
     }
 
     @Test(description = "verify get user api")
     public void getUserByUsername(){
+        /***^Data preparation**/
         date = new Date();
         JSONObject requestBody = JsonUtils.getJsonFileObj("src/test/resources/createSingleUser.json");
         String userName = "User"+date.getTime();
@@ -60,21 +56,15 @@ public class UserTest {
         requestBody.put("password",password);
         requestBody.put("phone",phoneNumber);
 
-        Response createUserResponse=Users.createUser(requestBody.toString(), 200);
-        /***^Data preparation**/
-
-
-        Response getResponse = Users.getUser(userName, 200);
-
-        System.out.println(getResponse.body().asString());
-
         /***^API call**/
+        Response createUserResponse=Users.createUser(requestBody.toString(), 200);
+        Response getResponse = Users.getUser(userName, 200);
 
         String actualusername = getResponse.jsonPath().get("username").toString();
         String id = getResponse.jsonPath().get("id").toString();
         String actualEmail = getResponse.jsonPath().get("email").toString();
-        /***^Assertions**/
 
+        /***^Assertions**/
         Assert.assertEquals(userName,actualusername);
         Assert.assertEquals(email,actualEmail);
         Assert.assertFalse(id.isEmpty());

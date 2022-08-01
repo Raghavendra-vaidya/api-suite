@@ -16,7 +16,7 @@ CI : **`CircleCi`**
 
 Build tool: **`Maven`**
 
-Plugins: Maven-compile-plugin, Maven-surefire-plugin
+Plugins: Maven-fail-safe
 
 ---
 Pre-requisites:
@@ -26,7 +26,7 @@ Pre-requisites:
 ---
 How to run:
 
-from the project root:  **`mvn -q clean test`**
+from the project root:  **`mvn verify`**
 
 
 ---

@@ -20,7 +20,6 @@ public class PetsTest {
        String name = "Kitto"+date.getTime();
        JSONObject requestBody=  JsonUtils.getJsonFileObj("src/test/resources/createNewPet.json");
        requestBody.put("name", name);
-       /*System.out.println(requestBody.toString());*/
 
        Response response = Pets.createNewPet(requestBody.toString(), 200);
 
@@ -29,8 +28,6 @@ public class PetsTest {
 
        Assert.assertEquals(name,actualName );
        Assert.assertFalse(idOfPet.isEmpty());
-
-
     }
 
     @Test (description = "Verify pet by id")
@@ -39,7 +36,6 @@ public class PetsTest {
         String name = "Kitto"+date.getTime();
         JSONObject requestBody=  JsonUtils.getJsonFileObj("src/test/resources/createNewPet.json");
         requestBody.put("name", name);
-
 
         Response response = Pets.createNewPet(requestBody.toString(), 200);
         String idOfPet = response.jsonPath().get("id").toString();
@@ -50,6 +46,7 @@ public class PetsTest {
 
     @Test (description = "verify updating of a pet name, family and tag name")
     public void verifyUpdatePet(){
+        /*** Data preparation***/
         date = new Date();
         String name = "Kitto"+date.getTime();
         String expectedName = "Pet 1";
@@ -58,24 +55,20 @@ public class PetsTest {
         JSONObject requestBody=  JsonUtils.getJsonFileObj("src/test/resources/createNewPet.json");
         requestBody.put("name", name);
 
-        /*** ^^^Data preparation***/
-
+        /*** Create Pet for updating ***/
         Response response = Pets.createNewPet(requestBody.toString(), 200);
 
-        /*** ^^Create Pet for updating***/
+        /*** data preparation for updating ***/
         JSONObject requestBodyUpdate=  JsonUtils.getJsonFileObj("src/test/resources/UpdatePet.json");
         requestBodyUpdate.put("id", response.jsonPath().get("id").toString());
 
-        /*** ^^data preparation for updating***/
+        /*** update api call ***/
         Response updateResponse=Pets.updatePet(requestBodyUpdate.toString(), 200);
-        /*** update api call***/
 
-        System.out.println(updateResponse.body().asString());
+        /*** Update api test assertions ***/
         Assert.assertEquals(expectedName, updateResponse.jsonPath().get("name").toString());
         Assert.assertEquals(expectedtagName, updateResponse.jsonPath().get("tags[0].name").toString());
         Assert.assertEquals(expectedFamily, updateResponse.jsonPath().get("category.name").toString());
-
-        /*** Update api test assertions***/
 
     }
 
