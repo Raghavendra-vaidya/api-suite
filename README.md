@@ -14,7 +14,7 @@ Involved tech: **`Java`**, **`RestAssured`**, **`testNG`**
 
 CI : **`CircleCi`**
 
-Build tool: **`Maven`**
+Build tool: **`Maven`** , **`Gradle`**
 
 Plugins: Maven-fail-safe
 
@@ -26,7 +26,10 @@ Pre-requisites:
 ---
 How to run:
 
-from the project root:  **`mvn verify`**
+from the project root:  
+
+1. Maven: **`mvn verify`**
+2. Gradle: **`./gradlew test`**
 
 
 ---
