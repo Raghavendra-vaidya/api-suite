@@ -16,9 +16,9 @@ jobs:
           command: |
             mkdir -p ~/test-results/petstore-api-tests/
             mkdir -p ~/test-output/
-            find . -type f -regex "./target/surefire-reports/junitreports/.*xml" -exec cp {} ~/test-results/petstore-api-tests/ \;
-            find . -type f -regex "./target/surefire-reports/TEST-TestSuite.xml" -exec cp {} ~/test-output/ \;
-            find . -type f -regex "./target/surefire-reports/emailable-report.html" -exec cp {} ~/test-output/ \;
+            find . -type f -regex "./target/failsafe-reports/junitreports/.*xml" -exec cp {} ~/test-results/petstore-api-tests/ \;
+            find . -type f -regex "./target/failsafe-reports/TEST-TestSuite.xml" -exec cp {} ~/test-output/ \;
+            find . -type f -regex "./target/failsafe-reports/emailable-report.html" -exec cp {} ~/test-output/ \;
           when: always
       - store_test_results:
           path: ~/test-results
