@@ -1,37 +1,51 @@
 package com.rkv.utils;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-import java.io.FileReader;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class JsonUtils {
 
 
-    public static JSONObject getJsonFileObj(String jsonFilePath){
-
-        JSONParser  jsonParser =  new JSONParser();
-        /*** Create JSONParser object to convert json file to readable type ***/
-        Object object = null;
-        JSONObject jsonObject = null;
+    public static JsonObject getJsonFileObject(String filePath) {
+        JsonObject object = null;
+        Path path = Paths.get(filePath);
 
         try {
-            object = jsonParser.parse(new FileReader(jsonFilePath));
-            /*** jsonParser.parse requires file reader type(file reader converts given json file to input stream/ readable type)
-             * line jsonParser.parse returns object type. We want return in JSONObject type***/
-
-            jsonObject = (JSONObject) object;
-            /*** type cast to  JSONObject type***/
-        } catch ( Exception e) {
+            Reader reader = Files.newBufferedReader(path);
+            JsonElement jsonElement = JsonParser.parseReader(reader);
+            object = jsonElement.getAsJsonObject();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return jsonObject;
-
+        return object;
     }
 
+    public static JsonArray getJsonFileArray(String filePath) {
+        JsonArray jsonArray = null;
+        Path path = Paths.get(filePath);
+        try {
+            Reader fileReader = Files.newBufferedReader(path);
+            JsonElement jsonElement = JsonParser.parseReader(fileReader);
+            jsonArray = jsonElement.getAsJsonArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return jsonArray;
+    }
 
-   /* public static void main(String[] args) {
-       JSONObject jsobj= getJsonFileObj("src/test/resources/createNewPet.json");
-    }*/
+    public static String getJsonObjectAsString(JsonObject jsonObj){
+        return jsonObj.toString();
+    }
+
+    public static String getJsonFileAsString(String filePath){
+        return getJsonFileObject(filePath).toString();
+    }
 
 }

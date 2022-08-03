@@ -1,9 +1,9 @@
 package com.rkv.testscripts;
 
+import com.google.gson.JsonObject;
 import io.restassured.response.Response;
 import com.rkv.endpoints.Users;
 import com.rkv.utils.JsonUtils;
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,19 +17,19 @@ public class UserTest {
     public void createUser(){
         /***Data preparation**/
         date = new Date();
-        JSONObject requestBody = JsonUtils.getJsonFileObj("src/test/resources/createSingleUser.json");
+        JsonObject requestBody = JsonUtils.getJsonFileObject("src/test/resources/createSingleUser.json");
         String userName = "User"+date.getTime();
         String firstName = userName;
         String lastName = "boogie";
         String phoneNumber = "1"+date.getTime();
         String email = userName+"@gmail.com";
         String password = userName;
-        requestBody.put("username",userName);
-        requestBody.put("firstName",firstName);
-        requestBody.put("lastName",lastName);
-        requestBody.put("email",email);
-        requestBody.put("password",password);
-        requestBody.put("phone",phoneNumber);
+        requestBody.addProperty("username",userName);
+        requestBody.addProperty("firstName",firstName);
+        requestBody.addProperty("lastName",lastName);
+        requestBody.addProperty("email",email);
+        requestBody.addProperty("password",password);
+        requestBody.addProperty("phone",phoneNumber);
 
         /***Api call**/
         Response createUserResponse=Users.createUser(requestBody.toString(), 200);
@@ -40,23 +40,23 @@ public class UserTest {
 
     @Test(description = "verify get user api")
     public void getUserByUsername(){
-        /***^Data preparation**/
+        /***Data preparation**/
         date = new Date();
-        JSONObject requestBody = JsonUtils.getJsonFileObj("src/test/resources/createSingleUser.json");
+        JsonObject requestBody = JsonUtils.getJsonFileObject("src/test/resources/createSingleUser.json");
         String userName = "User"+date.getTime();
         String firstName = userName;
         String lastName = "boogie";
         String phoneNumber = "1"+date.getTime();
         String email = userName+"@gmail.com";
         String password = userName;
-        requestBody.put("username",userName);
-        requestBody.put("firstName",firstName);
-        requestBody.put("lastName",lastName);
-        requestBody.put("email",email);
-        requestBody.put("password",password);
-        requestBody.put("phone",phoneNumber);
+        requestBody.addProperty("username",userName);
+        requestBody.addProperty("firstName",firstName);
+        requestBody.addProperty("lastName",lastName);
+        requestBody.addProperty("email",email);
+        requestBody.addProperty("password",password);
+        requestBody.addProperty("phone",phoneNumber);
 
-        /***^API call**/
+        /***API call**/
         Response createUserResponse=Users.createUser(requestBody.toString(), 200);
         Response getResponse = Users.getUser(userName, 200);
 
@@ -64,7 +64,7 @@ public class UserTest {
         String id = getResponse.jsonPath().get("id").toString();
         String actualEmail = getResponse.jsonPath().get("email").toString();
 
-        /***^Assertions**/
+        /***Assertions**/
         Assert.assertEquals(userName,actualusername);
         Assert.assertEquals(email,actualEmail);
         Assert.assertFalse(id.isEmpty());
