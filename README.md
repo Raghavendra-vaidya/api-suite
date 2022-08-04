@@ -29,7 +29,7 @@ How to run:
 from the project root:  
 
 1. Maven: **`mvn verify`**
-2. Gradle: **`gradle test`**
+2. Gradle: **`gradle clean test`**
 
 
 ---
