@@ -29,4 +29,7 @@ workflows:
   petStoreApiPipeline:
     # Run pet store tests
     jobs:
-      - petstoreAPITests
+      - petstoreAPITests:
+          filters:
+            branches:
+              only: main
