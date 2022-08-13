@@ -1,5 +1,5 @@
 # api-suite
-RestAPI Automation framework with **JAVA** and **restAssured** 
+RestAPI Automation framework using **restAssured** 
 
 ---
 APIs and other information: 
