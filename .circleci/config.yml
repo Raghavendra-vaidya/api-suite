@@ -11,19 +11,8 @@ jobs:
       - run:
           name: Run Petstore Tests
           command: mvn verify
-      - run:
-          name: Save test results
-          command: |
-            mkdir -p ~/test-results/petstore-api-tests/
-            mkdir -p ~/test-output/
-            find . -type f -regex "./target/failsafe-reports/junitreports/.*xml" -exec cp {} ~/test-results/petstore-api-tests/ \;
-            find . -type f -regex "./target/failsafe-reports/TEST-TestSuite.xml" -exec cp {} ~/test-output/ \;
-            find . -type f -regex "./target/failsafe-reports/emailable-report.html" -exec cp {} ~/test-output/ \;
-          when: always
-      - store_test_results:
-          path: ~/test-results
       - store_artifacts:
-          path: ~/test-output
+          path: /root/project/target/failsafe-reports
 workflows:
   # Name the workflow "petStoreApiPipeline"
   API Tests Maven JDK 8:
