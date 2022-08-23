@@ -20,7 +20,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     testImplementation 'io.rest-assured:json-path:4.4.0'
     testImplementation 'io.rest-assured:json-schema-validator:4.4.0'
-    testImplementation 'org.testng:testng:6.11'
+    implementation 'org.testng:testng:7.5'
     testImplementation 'org.apache.xbean:xbean-reflect:3.4'
     testImplementation 'commons-collections:commons-collections:3.2.1'
     testImplementation 'com.google.collections:google-collections:1.0'
@@ -39,6 +39,6 @@ publishing {
     }
 }
 
-tasks.named('test') {
+test {
     useTestNG()
 }
