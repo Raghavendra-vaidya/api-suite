@@ -83,6 +83,14 @@
            <version>2.9.0</version>
        </dependency>
 
+       <!-- extentreports -->
+       <dependency>
+           <groupId>com.aventstack</groupId>
+           <artifactId>extentreports</artifactId>
+           <version>4.0.9</version>
+       </dependency>
+
+
    </dependencies>
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
     <build>
