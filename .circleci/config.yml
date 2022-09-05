@@ -12,7 +12,7 @@ jobs:
           name: Run Petstore Tests
           command: mvn verify
       - store_artifacts:
-          path: /root/project/target/failsafe-reports, /root/project/reports
+          path: /root/project/reports
 workflows:
   # Name the workflow "petStoreApiPipeline"
   API Tests Maven JDK 8:
