@@ -33,8 +33,15 @@ from the project root:
 
 
 ---
-Sample report:
+Reports:
 
+Extent report:
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/30006440/188378140-afb29f52-d0a0-4197-8dfc-f998fcc3dc02.png">
+
+---
+
+Default report:
 <img width="1072" alt="image" src="https://user-images.githubusercontent.com/30006440/163345312-93ae5121-d6c4-48cd-840c-1ecec2dc5f1a.png">
 
 
