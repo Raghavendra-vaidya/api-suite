@@ -70,4 +70,8 @@ public class UserTest {
         Assert.assertFalse(id.isEmpty());
     }
 
+    @Test
+    public void userTestFail(){
+        Assert.assertEquals("pas","pass");
+    }
 }
