@@ -18,7 +18,7 @@ public class ExtentReportManager {
         sparkReporter.config().setEncoding("utf-8");
         sparkReporter.config().setDocumentTitle("Automation Reports");
         sparkReporter.config().setReportName("Public API Test Results");
-        sparkReporter.config().setTheme(Theme.DARK);
+        sparkReporter.config().setTheme(Theme.STANDARD);
         sparkReporter.config().setTimelineEnabled(false);
         sparkReporter.viewConfigurer()
                 .viewOrder()
