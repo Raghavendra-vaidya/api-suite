@@ -10,7 +10,7 @@ Swagger link: **`https://petstore.swagger.io/`**
 
 Sections automated: **`Pets`**, **`Users`**
 
-Involved tech: **`Java`**, **`RestAssured`**, **`testNG`**
+Involved tech: **`RestAssured - java`**, **`testNG`**
 
 CI : **`CircleCi`**
 
