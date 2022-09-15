@@ -24,7 +24,7 @@ Pre-requisites:
 * Maven and gradle should be installed locally or any IDE with maven plugin should be installed.
 
 ---
-How to run:
+How to execute:
 
 from the project root:  
 
