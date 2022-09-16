@@ -1,4 +1,4 @@
-# api-suite
+# api-suite :gear:
 RestAPI Automation framework using **restAssured** 
 
 ---
