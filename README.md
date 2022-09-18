@@ -1,5 +1,5 @@
 # api-suite :gear:
-RestAPI Automation framework using **restAssured** 
+RestAPI Automation framework using **restAssured**.
 
 ---
 APIs and other information: 
